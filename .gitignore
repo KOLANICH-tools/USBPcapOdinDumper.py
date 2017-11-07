@@ -1,0 +1,17 @@
+/kaitai_struct_formats
+
+/USBPcapOdinDumper/kaitai/ethernet_frame.py
+/USBPcapOdinDumper/kaitai/icmp_packet.py
+/USBPcapOdinDumper/kaitai/ipv4_packet.py
+/USBPcapOdinDumper/kaitai/ipv6_packet.py
+/USBPcapOdinDumper/kaitai/packet_ppi.py
+/USBPcapOdinDumper/kaitai/tcp_segment.py
+/USBPcapOdinDumper/kaitai/udp_datagram.py
+
+__pycache__
+*.pyc
+*.pyo
+/*.egg-info
+/build
+/dist
+/*.eggs

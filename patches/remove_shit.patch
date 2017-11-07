@@ -1,0 +1,25 @@
+From 556035d673d563c5f65ad8c912fb08e640819c34 Mon Sep 17 00:00:00 2001
+From: KOLANICH <KOLANICH@users.noreply.github.com>
+Date: Thu, 1 Jan 1970 00:00:00 +0000
+Subject: [PATCH] Removed unneeded shit
+
+---
+ USBPcapOdinDumper/kaitai/pcap.py | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/USBPcapOdinDumper/kaitai/pcap.py b/USBPcapOdinDumper/kaitai/pcap.py
+index 768936d..d54768d 100644
+--- a/USBPcapOdinDumper/kaitai/pcap.py
++++ b/USBPcapOdinDumper/kaitai/pcap.py
+@@ -9,8 +9,6 @@ from enum import Enum
+ if parse_version(kaitaistruct.__version__) < parse_version('0.9'):
+     raise Exception("Incompatible Kaitai Struct Python API: 0.9 or later is required, but you have %s" % (kaitaistruct.__version__))
+ 
+-from . import packet_ppi
+-from . import ethernet_frame
+ from . import usbpcap
+ from . import usbmon
+ class Pcap(KaitaiStruct):
+-- 
+2.32.0
+

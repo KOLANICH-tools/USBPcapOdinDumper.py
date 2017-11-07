@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=61.2.0", "wheel", "setuptools_scm[toml]>=3.4.3", "kaitaiStructCompile.setuptools[toml]"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "USBPcapOdinDumper"
+authors = [{name = "KOLANICH"}]
+description = "A tool to assist ODIN3 protocol reverse engineering."
+readme = "ReadMe.md"
+keywords = ["odin3", "samsung", "heimdall", "pcap", "usbmon", "usbpcap"]
+license = {text = "Unlicense"}
+classifiers = [
+	"Programming Language :: Python",
+	"Programming Language :: Python :: 3",
+	"Development Status :: 4 - Beta",
+	"Environment :: Other Environment",
+	"Intended Audience :: Developers",
+	"License :: Public Domain",
+	"Operating System :: OS Independent",
+	"Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+	"plumbum @ git+https://github.com/tomerfiliba/plumbum.git",
+	"RichConsole @ git+https://codeberg.org/KOLANICH-libs/RichConsole.git",
+	"Pipeline @ git+https://codeberg.org/KOLANICH-libs/Pipeline.py.git",
+	"kaitaistruct @ git+https://github.com/kaitai-io/kaitai_struct_python_runtime.git#egg=kaitaistruct",
+]
+requires-python = ">=3.4"
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://codeberg.org/KOLANICH-tools/USBPcapOdinDumper"
+
+[tool.setuptools]
+zip-safe = true
+packages = ["USBPcapOdinDumper", "USBPcapOdinDumper.kaitai"]
+
+[tool.setuptools_scm]
+
+[tool.kaitai]
+outputDir = "USBPcapOdinDumper/kaitai"
+
+[tool.kaitai.repos."https://codeberg.org/KOLANICH-specs/kaitai_struct_formats"."usb_monitors_and_odin"]
+update = true
+localPath = "kaitai_struct_formats"
+
+[tool.kaitai.repos."https://codeberg.org/KOLANICH-specs/kaitai_struct_formats"."usb_monitors_and_odin".formats.pcap]
+path = "network/pcap.ksy"
+
+[tool.kaitai.repos."https://codeberg.org/KOLANICH-specs/kaitai_struct_formats"."usb_monitors_and_odin".formats.odin3]
+path = "firmware/odin3.ksy"
+
+[tool.kaitai.repos."https://codeberg.org/KOLANICH-specs/kaitai_struct_formats"."usb_monitors_and_odin".formats.odin3.postprocess]
+fixEnums = []
+applyPatches = ["patches/remove_shit.patch"]
