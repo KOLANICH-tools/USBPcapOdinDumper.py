@@ -3,6 +3,7 @@ import os
 import platform
 import sys
 from glob import glob
+from warnings import warn
 
 import colorama
 from RichConsole import RichStr, groups
@@ -11,6 +12,8 @@ from .Dumper import Dumper
 from .OdinDumping import OdinDumping
 from .PcapDumping import PcapDumping
 from .USBPcapDumping import USBPcapDumping
+
+warn("We have moved from M$ GitHub to https://codeberg.org/KOLANICH-tools/USBPcapOdinDumper , read why on https://codeberg.org/KOLANICH/Fuck-GuanTEEnomo .")
 
 neededCharacters = "←→"
 if __name__ == "__main__":
